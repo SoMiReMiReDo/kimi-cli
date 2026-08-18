@@ -136,8 +136,8 @@ def _cleanup_stale_foreground_subagents(runtime: Runtime) -> None:
 class KimiCLI:
     """一次可运行的 agent 实例；由 CLI 层构造，UI 层持有并调用其 run_* 方法。"""
 
-    @staticmethod
-    async def create(
+    @staticmethod 
+    async def create( # Agent启动的入口
         session: Session,
         *,
         # Basic configuration
@@ -365,7 +365,7 @@ class KimiCLI:
             await context.write_system_prompt(agent.system_prompt)
 
         # ==== 阶段 11：构造 KimiSoul（主循环） ====
-        soul = KimiSoul(agent, context=context)
+        soul = KimiSoul(agent, context=context) # * 核心
 
         # ==== 阶段 12：激活 plan mode（如请求） ====
         # Activate plan mode if requested (for new sessions or --plan flag)
